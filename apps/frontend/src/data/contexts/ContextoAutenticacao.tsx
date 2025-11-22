@@ -1,18 +1,21 @@
-import { createContext } from "react"
+"use client"
+import { createContext, useState } from "react"
+import { Usuario } from "@urna/auth"
 
-const ContextoAutenticacao = createContext({} as any)
+export interface ContextoAutenticacaoProps {
+	usuario: Partial<Usuario>
+	alterarUsuario: (usuario: Partial<Usuario>) => void
+}
+
+const ContextoAutenticacao = createContext<ContextoAutenticacaoProps>({} as any)
 
 export function ProvedoraAutenticacao(props: any) {
+	const [usuario, setUsuario] = useState<Partial<Usuario>>({} as any)
 	return (
 		<ContextoAutenticacao.Provider
 			value={{
-				usuario: null,
-				// usuario: {
-				// 	id: 1,
-				// 	nome: "João Silva",
-				// 	email: "joao.silva@gmail.com",
-				// 	senha: "senha123",
-				// },
+				usuario,
+				alterarUsuario: setUsuario,
 			}}
 		>
 			{props.children}
