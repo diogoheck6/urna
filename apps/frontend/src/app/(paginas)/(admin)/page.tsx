@@ -7,8 +7,8 @@ export default function Home() {
 
 	return (
 		<div className="flex flex-col">
-			<span>{usuario.id}</span>
-			<span>{usuario.nome}</span>
+			<span>{usuario?.id}</span>
+			<span>{usuario?.nome}</span>
 		</div>
 	)
 }

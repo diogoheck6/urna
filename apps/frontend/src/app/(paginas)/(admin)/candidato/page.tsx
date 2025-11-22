@@ -4,6 +4,7 @@ import candidatosIniciais from "@/data/constants/candidatos"
 import ListaCandidatos from "@/components/candidato/ListaCandidatos"
 import Candidato from "@/data/model/Candidato"
 import FormularioCandidato from "@/components/candidato/FormularioCandidato"
+import ForcarUsuarioLogado from "@/components/auth/ForcarUsuarioLogado"
 
 export default function PaginaCandidato() {
 	const [candidatoSelecionado, setCandidatoSelecionado] = useState<Partial<Candidato> | null>(
@@ -28,7 +29,7 @@ export default function PaginaCandidato() {
 	}
 
 	return (
-		<div>
+		<ForcarUsuarioLogado>
 			{candidatoSelecionado ? (
 				<FormularioCandidato
 					candidato={candidatoSelecionado}
@@ -50,6 +51,6 @@ export default function PaginaCandidato() {
 					/>
 				</div>
 			)}
-		</div>
+		</ForcarUsuarioLogado>
 	)
 }
