@@ -1,1 +1,9 @@
-node_modules
+# Builds
+dist/
+packages/**/dist
+
+# Next.js
+.next/
+
+# Node
+node_modules/
